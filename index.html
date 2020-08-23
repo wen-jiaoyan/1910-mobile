@@ -75,8 +75,8 @@
 			<span>更多</span>
 		</div>
 		<div class="header-sy-nr3">
-			<ul>
-				<li>
+			<ul id="goods_list">
+				<!--li>
 					<div class="spwai">
 						<a href=""><img src="img/sytu8.png"/></a>
 						<div class="spxinxi">
@@ -84,79 +84,7 @@
 							<span>0金币+￥125</span>
 						</div>
 					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
-				<li>
-					<div class="spwai">
-						<a href=""><img src="img/sytu8.png"/></a>
-						<div class="spxinxi">
-							<p><a href="">S-易路达超轻折叠双肩包</a></p>
-							<span>0金币+￥125</span>
-						</div>
-					</div>
-				</li>
+				</li-->
 			</ul>
 		</div>
 		<div style="height: 5em;"></div>
@@ -210,6 +138,20 @@
 				{
 					//填充页面数据
 					console.log(d);
+					$.each(d.data.goods,function(i,item){
+						console.log(i + '--' + item.goods_name);
+						var node = '<li>' +
+								'<div class="spwai">' +
+								'<a href="/detail.html?id='+ item.goods_id +'"><img src="img/sytu8.png"/></a>' +
+								'<div class="spxinxi">' +
+								'<p><a href="">'+ item.goods_name +'</a></p>' +
+								'<span>￥'+item.shop_price+'</span>' +
+								'</div>' +
+								'</div>' +
+								'</li>';
+						$("#goods_list").append(node);
+					});
+
 				}
 			});
 		</script>
